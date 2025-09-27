@@ -1,12 +1,12 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
 {
-    public:
-        int val;
-        Node* next;
-        Node* prev;
+public:
+    int val;
+    Node *next;
+    Node *prev;
     Node(int val)
     {
         this->val = val;
@@ -15,10 +15,10 @@ class Node
     }
 };
 
-void print_forward(Node* head)
+void print_forward(Node *head)
 {
-    Node* tmp = head;
-    while(tmp != NULL)
+    Node *tmp = head;
+    while (tmp != NULL)
     {
         cout << tmp->val << " ";
         tmp = tmp->next;
@@ -26,12 +26,12 @@ void print_forward(Node* head)
     cout << endl;
 }
 
-void delete_at_head(Node* &head, Node* &tail)
+void delete_at_head(Node *&head, Node *&tail)
 {
-    Node* deleteNode = head;
+    Node *deleteNode = head;
     head = head->next;
     delete deleteNode;
-    if(head == NULL)
+    if (head == NULL)
     {
         tail = NULL;
         return;
@@ -41,9 +41,9 @@ void delete_at_head(Node* &head, Node* &tail)
 
 int main()
 {
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* tail = new Node(30);
+    Node *head = new Node(10);
+    Node *a = new Node(20);
+    Node *tail = new Node(30);
 
     head->next = a;
     a->prev = head;
@@ -51,8 +51,8 @@ int main()
     a->next = tail;
     tail->prev = a;
 
-    delete_at_head(head,tail);
-    delete_at_head(head,tail);
+    delete_at_head(head, tail);
+ 
     print_forward(head);
     return 0;
 }
